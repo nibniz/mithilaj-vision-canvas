@@ -1,17 +1,27 @@
 import HeroSection from "@/components/HeroSection";
-import StorySection from "@/components/StorySection";
-import WorkSection from "@/components/WorkSection";
-import EntertainmentSection from "@/components/EntertainmentSection";
-import ContactSection from "@/components/ContactSection";
+import EssenceSection from "@/components/EssenceSection";
+import CredibilitySection from "@/components/CredibilitySection";
+import ServicesOverviewSection from "@/components/ServicesOverviewSection";
+import PhilosophySection from "@/components/PhilosophySection";
+import HighlightReelSection from "@/components/HighlightReelSection";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import AchievementsSection from "@/components/AchievementsSection";
+import BioSection from "@/components/BioSection";
+import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
   return (
     <div className="relative">
       <HeroSection />
-      <StorySection />
-      <WorkSection />
-      <EntertainmentSection />
-      <ContactSection />
+      <EssenceSection />
+      <CredibilitySection />
+      <ServicesOverviewSection />
+      <PhilosophySection />
+      <HighlightReelSection />
+      <WhyChooseSection />
+      <AchievementsSection />
+      <BioSection />
+      <FooterSection />
     </div>
   );
 };
