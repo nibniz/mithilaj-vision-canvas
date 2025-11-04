@@ -45,7 +45,7 @@ const ServicesOverviewSection = () => {
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title text-gradient">What We Do</h2>
+          <h2 className="section-title text-foreground">What We Do</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Full-spectrum production services from concept to delivery
           </p>
@@ -55,15 +55,15 @@ const ServicesOverviewSection = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group relative p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-500 hover:scale-105 animate-scale-in overflow-hidden"
+              className="group relative p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-white/50 transition-all duration-500 hover:scale-105 animate-scale-in overflow-hidden"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+              {/* Background on hover */}
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-6 group-hover:glow-primary transition-all duration-300">
-                  <service.icon className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:border-white/50 transition-all duration-300">
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h3>
@@ -76,7 +76,7 @@ const ServicesOverviewSection = () => {
         <div className="text-center animate-fade-in">
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-primary via-accent to-secondary hover:opacity-90 text-white px-10 py-6 text-base rounded-full transition-all duration-300 hover:scale-105 glow-primary"
+            className="bg-white text-black hover:bg-white/90 px-10 py-6 text-base rounded-full transition-all duration-300 hover:scale-105 border border-white/20"
             onClick={() => window.location.href = '/services'}
           >
             Explore All Services
