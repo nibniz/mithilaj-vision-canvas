@@ -66,6 +66,7 @@ All colors MUST be HSL.
     font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 100;
     position: relative;
+    cursor: none;
   }
 
   /* Subtle starry background for entire page */
@@ -127,5 +128,47 @@ All colors MUST be HSL.
   .parallax-slow {
     transform: translateZ(0);
     will-change: transform;
+  }
+}
+
+/* Custom Cursor Styles */
+.cursor {
+  pointer-events: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  mix-blend-mode: exclusion;
+  background: radial-gradient(circle, #fff 0%, #fff 3.99%, #000 4%, #000 49.99%, #fff 50%, #fff 100%);
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
+.cursor.style1 {
+  background: radial-gradient(circle, #fff 0%, #fff 3.99%, #000 4%, #000 49.99%, #fff 50%, #fff 100%);
+}
+
+.cursor.style2 {
+  background: radial-gradient(circle, #000 0%, #000 3.99%, #fff 4%, #fff 100%);
+}
+
+.cursor.style3 {
+  background: radial-gradient(circle, #fff 0%, #fff 3.99%, #000 4%, #000 68.99%, #fff 70%, #fff 100%);
+}
+
+.cursor.click {
+  animation: click 0.3s ease-in-out;
+}
+
+@keyframes click {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
   }
 }
