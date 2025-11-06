@@ -1,5 +1,7 @@
 import { Mic2, Tv, Film } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import RippleButton from "@/components/RippleButton";
+import AnimationWrapper from "@/components/AnimationWrapper";
+import { motion } from "framer-motion";
 
 const ServicesOverviewSection = () => {
   const services = [
@@ -44,44 +46,50 @@ const ServicesOverviewSection = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
+        <AnimationWrapper direction="up" className="text-center mb-16">
           <h2 className="section-title text-foreground">What We Do</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Full-spectrum production services from concept to delivery
           </p>
-        </div>
+        </AnimationWrapper>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
           {services.map((service, index) => (
-            <div 
-              key={index}
-              className="group relative p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-white/50 transition-all duration-500 hover:scale-105 animate-scale-in overflow-hidden"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              {/* Background on hover */}
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:border-white/50 transition-all duration-300">
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
+            <AnimationWrapper key={index} direction="up" delay={index * 0.15}>
+              <motion.div 
+                className="group relative p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-white/50 transition-all duration-500 overflow-hidden"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {/* Background on hover */}
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <h3 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-              </div>
-            </div>
+                <div className="relative z-10">
+                  <motion.div 
+                    className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:border-white/50 transition-all duration-300"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <service.icon className="w-8 h-8 text-white" />
+                  </motion.div>
+                  
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </div>
+              </motion.div>
+            </AnimationWrapper>
           ))}
         </div>
 
-        <div className="text-center animate-fade-in">
-          <Button 
+        <AnimationWrapper direction="up" delay={0.5} className="text-center">
+          <RippleButton 
             size="lg"
-            className="bg-white text-black hover:bg-white/90 px-10 py-6 text-base rounded-full transition-all duration-300 hover:scale-105 border border-white/20"
+            variant="default"
             onClick={() => window.location.href = '/services'}
           >
             Explore All Services
-          </Button>
-        </div>
+          </RippleButton>
+        </AnimationWrapper>
       </div>
     </section>
   );

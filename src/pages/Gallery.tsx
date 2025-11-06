@@ -2,12 +2,21 @@ import { Link } from "react-router-dom";
 import FooterSection from "@/components/FooterSection";
 
 const Gallery = () => {
-  // Placeholder images - replace with actual gallery images
-  const galleryImages = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    src: "/placeholder.svg",
-    alt: `Gallery Image ${i + 1}`,
-  }));
+  // Gallery images with variety of entertainment/production themes
+  const galleryImages = [
+    { id: 1, src: "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=800&h=800&fit=crop&q=80", alt: "Live TV Production" },
+    { id: 2, src: "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800&h=800&fit=crop&q=80", alt: "Award Show Stage" },
+    { id: 3, src: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=800&fit=crop&q=80", alt: "Film Set" },
+    { id: 4, src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbaf53?w=800&h=800&fit=crop&q=80", alt: "Concert Stage" },
+    { id: 5, src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&h=800&fit=crop&q=80", alt: "TV Studio" },
+    { id: 6, src: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=800&fit=crop&q=80", alt: "Music Production" },
+    { id: 7, src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=800&fit=crop&q=80", alt: "Cinema" },
+    { id: 8, src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&q=80", alt: "Director" },
+    { id: 9, src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=800&fit=crop&q=80", alt: "Event Production" },
+    { id: 10, src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=800&fit=crop&q=80", alt: "Festival Stage" },
+    { id: 11, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=800&fit=crop&q=80", alt: "Broadcast Studio" },
+    { id: 12, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=800&fit=crop&q=80", alt: "Production Set" },
+  ];
 
   return (
     <div className="relative bg-black min-h-screen">

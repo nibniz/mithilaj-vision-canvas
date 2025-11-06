@@ -46,7 +46,11 @@ const Portfolio = () => {
       challenge: "Coordinating thousands of participants in real-time while maintaining broadcast quality for live television.",
       approach: "Implemented multi-camera systems, real-time editing, and strategic audience management protocols.",
       result: "Achieved Guinness World Record for most participants in a live television talent show. Successfully broadcast to millions of viewers with zero technical disruptions.",
-      images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+      images: [
+        "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=800&fit=crop&q=80"
+      ],
     },
     {
       id: 2,
@@ -59,7 +63,10 @@ const Portfolio = () => {
       challenge: "Balancing artistic vision with production constraints while maintaining authentic storytelling.",
       approach: "Collaborative direction process with cast and crew, focusing on character development and visual narrative.",
       result: "Completed feature film with critical acclaim, demonstrating versatility from live events to cinematic storytelling.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      images: [
+        "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&h=800&fit=crop&q=80"
+      ],
     },
     {
       id: 3,
@@ -72,7 +79,11 @@ const Portfolio = () => {
       challenge: "Coordinating multiple award segments, live performances, and seamless broadcast transitions.",
       approach: "Integrated stage design, lighting, and camera work to create cinematic moments throughout the ceremony.",
       result: "Successful live broadcast reaching millions of viewers with polished production values and seamless execution.",
-      images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+      images: [
+        "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=800&fit=crop&q=80"
+      ],
     },
     {
       id: 4,
@@ -85,7 +96,10 @@ const Portfolio = () => {
       challenge: "Managing logistics across multiple venues while maintaining consistent production quality and artist coordination.",
       approach: "Systematic production management with dedicated teams per venue, standardized technical setups, and centralized creative direction.",
       result: "Successful multi-city festival execution with high audience engagement and positive artist feedback.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      images: [
+        "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&h=800&fit=crop&q=80"
+      ],
     },
     {
       id: 5,
@@ -98,7 +112,11 @@ const Portfolio = () => {
       challenge: "Translating musical narrative into compelling visual sequences with limited production time.",
       approach: "Collaborative pre-production planning, efficient on-set direction, and post-production visual effects integration.",
       result: "Music video achieved high viewership and positive reception for its cinematic quality and narrative depth.",
-      images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+      images: [
+        "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=800&fit=crop&q=80"
+      ],
     },
     {
       id: 6,
@@ -111,7 +129,10 @@ const Portfolio = () => {
       challenge: "Creating engaging visual experiences for corporate content while maintaining professional production standards.",
       approach: "Custom stage design, integrated LED displays, and strategic camera work to enhance speaker presentations.",
       result: "Successful corporate event with enhanced engagement metrics and positive client feedback on production quality.",
-      images: ["/placeholder.svg", "/placeholder.svg"],
+      images: [
+        "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&h=800&fit=crop&q=80"
+      ],
     },
   ];
 
@@ -193,7 +214,7 @@ const Portfolio = () => {
           {/* Placeholder for video - replace with actual video element */}
           <div className="absolute inset-0 opacity-20">
             <img
-              src="/placeholder.svg"
+              src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=1080&fit=crop&q=80"
               alt="Portfolio background"
               className="w-full h-full object-cover"
             />
@@ -254,7 +275,7 @@ const Portfolio = () => {
               >
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-white/5 hover:border-white/20 transition-all duration-300">
                   <img
-                    src="/placeholder.svg"
+                    src={project.images[0] || "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=600&fit=crop&q=80"}
                     alt={project.imageAlt}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                   />
@@ -310,7 +331,7 @@ const Portfolio = () => {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden border border-white/10 animate-fade-in">
               <img
-                src="/placeholder.svg"
+                src="https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=1200&h=800&fit=crop&q=80"
                 alt="Comedy Ulsavam - Guinness World Record production"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
@@ -403,7 +424,7 @@ const Portfolio = () => {
                 {/* Project Image */}
                 <div className="relative aspect-video rounded-lg overflow-hidden border border-white/10">
                   <img
-                    src="/placeholder.svg"
+                    src={selectedProject.images[0] || "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&h=800&fit=crop&q=80"}
                     alt={selectedProject.imageAlt}
                     className="w-full h-full object-cover"
                   />

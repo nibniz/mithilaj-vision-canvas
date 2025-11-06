@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import RippleButton from "@/components/RippleButton";
+import AnimatedInput from "@/components/AnimatedInput";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+import AnimationWrapper from "@/components/AnimationWrapper";
 import FooterSection from "@/components/FooterSection";
 
 const Contact = () => {
@@ -77,69 +77,62 @@ const Contact = () => {
         <section className="relative py-10 overflow-hidden">
           <div className="relative z-10 container mx-auto px-6">
             <div className="max-w-2xl mx-auto">
-              <form onSubmit={handleSubmit} className="space-y-8 animate-fade-in">
-                {/* Email Field */}
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-base font-light text-foreground">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="bg-black/50 border-white/10 text-foreground placeholder:text-foreground/40 focus-visible:border-white/30"
-                  />
-                </div>
+              <AnimationWrapper direction="up" delay={0.2}>
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  {/* Email Field */}
+                  <AnimationWrapper direction="up" delay={0.3}>
+                    <AnimatedInput
+                      label="Email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </AnimationWrapper>
 
-                {/* Phone Number Field */}
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-base font-light text-foreground">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="+1 (555) 000-0000"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="bg-black/50 border-white/10 text-foreground placeholder:text-foreground/40 focus-visible:border-white/30"
-                  />
-                </div>
+                  {/* Phone Number Field */}
+                  <AnimationWrapper direction="up" delay={0.4}>
+                    <AnimatedInput
+                      label="Phone Number"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                    />
+                  </AnimationWrapper>
 
-                {/* Description/Message Field */}
-                <div className="space-y-2">
-                  <Label htmlFor="description" className="text-base font-light text-foreground">
-                    Description
-                  </Label>
-                  <Textarea
-                    id="description"
-                    name="description"
-                    placeholder="Tell us about your project, event, or inquiry..."
-                    value={formData.description}
-                    onChange={handleChange}
-                    required
-                    rows={8}
-                    className="bg-black/50 border-white/10 text-foreground placeholder:text-foreground/40 focus-visible:border-white/30 resize-none"
-                  />
-                </div>
+                  {/* Description/Message Field */}
+                  <AnimationWrapper direction="up" delay={0.5}>
+                    <div className="relative">
+                      <Textarea
+                        id="description"
+                        name="description"
+                        placeholder="Tell us about your project, event, or inquiry..."
+                        value={formData.description}
+                        onChange={handleChange}
+                        required
+                        rows={8}
+                        className="w-full px-4 pt-6 pb-2 bg-white/5 border border-white/20 rounded-lg text-foreground placeholder:text-foreground/40 focus-visible:border-white/50 focus-visible:outline-none resize-none transition-colors duration-300"
+                      />
+                    </div>
+                  </AnimationWrapper>
 
-                {/* Submit Button */}
-                <div className="pt-4">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-white text-black hover:bg-white/90 px-10 py-6 text-base rounded-full transition-all duration-300 hover:scale-105 border border-white/20"
-                  >
-                    Send Message
-                  </Button>
-                </div>
-              </form>
+                  {/* Submit Button */}
+                  <AnimationWrapper direction="up" delay={0.6}>
+                    <div className="pt-4">
+                      <RippleButton
+                        type="submit"
+                        size="lg"
+                        className="w-full"
+                      >
+                        Send Message
+                      </RippleButton>
+                    </div>
+                  </AnimationWrapper>
+                </form>
+              </AnimationWrapper>
             </div>
           </div>
         </section>

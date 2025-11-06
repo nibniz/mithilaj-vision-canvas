@@ -67,6 +67,7 @@ All colors MUST be HSL.
     font-weight: 100;
     position: relative;
     cursor: none;
+    scroll-snap-type: y proximity;
   }
 
   /* Subtle starry background for entire page */
@@ -128,6 +129,23 @@ All colors MUST be HSL.
   .parallax-slow {
     transform: translateZ(0);
     will-change: transform;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reduced-motion * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 

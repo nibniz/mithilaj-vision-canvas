@@ -68,7 +68,7 @@ const About = () => {
           <div className="absolute inset-0 bg-black">
             {/* Cover Image - Replace placeholder with actual image */}
             <img
-              src="/placeholder.svg"
+              src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=800&fit=crop&q=80"
               alt="Mithilaj Entertainments Cover"
               className="w-full h-full object-cover object-center grayscale opacity-80"
             />

@@ -4,11 +4,12 @@ import { useState, useEffect, useRef } from "react";
 interface AchievementCardProps {
   icon: LucideIcon;
   text: string;
+  image: string;
   index: number;
   totalCards: number;
 }
 
-const AchievementCard = ({ icon: Icon, text, index, totalCards }: AchievementCardProps) => {
+const AchievementCard = ({ icon: Icon, text, image, index, totalCards }: AchievementCardProps) => {
   const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -107,7 +108,22 @@ const AchievementCard = ({ icon: Icon, text, index, totalCards }: AchievementCar
       onMouseLeave={handleMouseLeave}
     >
       {/* Top Section - Visual Area with Icon */}
-      <div className={`relative h-56 md:h-64 bg-gradient-to-b ${gradients[index % gradients.length]} flex items-center justify-center overflow-hidden group-hover:brightness-110 transition-all duration-300`}>
+      <div className={`relative h-56 md:h-64 flex items-center justify-center overflow-hidden group-hover:brightness-110 transition-all duration-300`}>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={image}
+            alt=""
+            className="w-full h-full object-cover"
+            style={{
+              filter: 'grayscale(0.3) brightness(0.4) contrast(1.2)',
+            }}
+          />
+        </div>
+        
+        {/* Gradient Overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-b ${gradients[index % gradients.length]}`}></div>
+        
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -146,19 +162,23 @@ const AchievementsSection = () => {
   const achievements = [
     {
       icon: Trophy,
-      text: "Guinness World Record — Most participants in a live television talent show (Comedy Ulsavam)."
+      text: "Guinness World Record — Most participants in a live television talent show (Comedy Ulsavam).",
+      image: "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=800&h=600&fit=crop&q=80"
     },
     {
       icon: Star,
-      text: "Directed major award shows, festivals and television programs across leading channels."
+      text: "Directed major award shows, festivals and television programs across leading channels.",
+      image: "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800&h=600&fit=crop&q=80"
     },
     {
       icon: Radio,
-      text: "Creative head roles in radio & coordination roles in international animation projects."
+      text: "Creative head roles in radio & coordination roles in international animation projects.",
+      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=600&fit=crop&q=80"
     },
     {
       icon: Clapperboard,
-      text: "Feature film director with broadcast-quality production standards."
+      text: "Feature film director with broadcast-quality production standards.",
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop&q=80"
     }
   ];
 
@@ -180,6 +200,7 @@ const AchievementsSection = () => {
               key={index}
               icon={achievement.icon}
               text={achievement.text}
+              image={achievement.image}
               index={index}
               totalCards={achievements.length}
             />

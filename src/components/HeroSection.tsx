@@ -1,5 +1,13 @@
-import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import RippleButton from "@/components/RippleButton";
+import AnimatedText from "@/components/AnimatedText";
+import SplitText from "@/components/SplitText";
+import GradientText from "@/components/GradientText";
+import AnimationWrapper from "@/components/AnimationWrapper";
+import ParallaxImage from "@/components/ParallaxImage";
+import StickyNav from "@/components/StickyNav";
+import Navigation from "@/components/Navigation";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -42,72 +50,75 @@ const HeroSection = () => {
 
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-20 px-6 py-6 md:py-8">
-        <div className="container mx-auto flex justify-between items-center">
-          {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white border border-white/20 flex items-center justify-center shadow-lg">
-              <span className="text-lg md:text-xl font-bold text-black">MA</span>
-            </div>
-            <div className="text-lg md:text-xl font-bold text-foreground">
-              MITHILAJ ENTERTAINMENTS
-            </div>
-          </div>
-              <div className="hidden md:flex gap-8">
-                  <a href="/about" className="text-sm text-foreground/80 hover:text-foreground transition-colors">About</a>
-                <a href="/gallery" className="text-sm text-foreground/80 hover:text-foreground transition-colors">Gallery</a>
-                <a href="/portfolio" className="text-sm text-foreground/80 hover:text-foreground transition-colors">Portfolio</a>
-                <a href="/contact" className="text-sm text-foreground/80 hover:text-foreground transition-colors">Contact</a>
-              </div>
-        </div>
+        <Navigation />
       </nav>
+
+      {/* Sticky Navigation */}
+      <StickyNav className="px-6 py-4">
+        <Navigation />
+      </StickyNav>
 
       {/* Hero Content - Centered Cinematic Layout with Portrait */}
       <div className="relative z-10 container mx-auto px-6 pt-24 pb-0">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center max-w-7xl mx-auto">
           {/* Left Column - Text Content (Centered on mobile, Left on desktop) */}
-          <div className="lg:col-span-7 text-center lg:text-left animate-fade-in pt-8 lg:pt-0">
+          <AnimationWrapper className="lg:col-span-7 text-center lg:text-left pt-8 lg:pt-0" delay={0.2}>
             {/* Company Name */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-8 tracking-tight">
-              Mithilaj Entertainments
-            </h1>
+            <GradientText
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 tracking-tight block"
+              animate={true}
+            >
+              <SplitText by="word" delay={0.3} stagger={0.05}>
+                Mithilaj Entertainments
+              </SplitText>
+            </GradientText>
 
             {/* Tagline - One line */}
             <div className="mb-6 md:mb-8 overflow-x-auto">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight whitespace-nowrap">
-                <span className="text-foreground">Creating Moments.</span>{' '}
-                <span className="text-foreground">Crafting Stories.</span>
-              </h2>
+              <AnimatedText 
+                className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight whitespace-nowrap"
+                delay={0.6}
+                stagger={0.08}
+              >
+                Creating Moments. Crafting Stories.
+              </AnimatedText>
             </div>
 
             {/* Description */}
-            <div className="mb-10 md:mb-12 overflow-x-auto">
-              <p className="text-sm md:text-base text-foreground/90 leading-relaxed whitespace-nowrap">
-                A creative house led by <span className="text-foreground font-semibold">Mithilaj Abdul</span> — where stories meet performance.
-              </p>
-            </div>
+            <AnimationWrapper delay={0.9} direction="fade">
+              <div className="mb-10 md:mb-12 overflow-x-auto">
+                <p className="text-sm md:text-base text-foreground/90 leading-relaxed whitespace-nowrap">
+                  A creative house led by <span className="text-foreground font-semibold">Mithilaj Abdul</span> — where stories meet performance.
+                </p>
+              </div>
+            </AnimationWrapper>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pb-4">
-              <Button 
-                size="lg" 
-                className="bg-white text-black hover:bg-white/90 px-10 py-6 text-base rounded-full transition-all duration-300 hover:scale-105 border border-white/20"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Start a Project
-              </Button>
-              
-              <button 
-                onClick={() => window.location.href = '/portfolio'}
-                className="text-foreground/80 hover:text-foreground transition-colors flex items-center gap-2 text-base border-b border-foreground/20 pb-1"
-              >
-                <span>View Our Work</span>
-                <ArrowDown className="w-4 h-4 rotate-[-90deg]" />
-              </button>
-            </div>
-          </div>
+            <AnimationWrapper delay={1.1} direction="up">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pb-4">
+                <RippleButton 
+                  size="lg"
+                  variant="default"
+                  onClick={() => window.location.href = '/contact'}
+                >
+                  Start a Project
+                </RippleButton>
+                
+                <motion.button 
+                  onClick={() => window.location.href = '/portfolio'}
+                  className="text-foreground/80 hover:text-foreground transition-colors flex items-center gap-2 text-base border-b border-foreground/20 pb-1"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>View Our Work</span>
+                  <ArrowDown className="w-4 h-4 rotate-[-90deg]" />
+                </motion.button>
+              </div>
+            </AnimationWrapper>
+          </AnimationWrapper>
 
           {/* Right Column - Dramatic Portrait */}
-          <div className="lg:col-span-5 relative hidden lg:flex justify-center items-center">
+          <AnimationWrapper className="lg:col-span-5 relative hidden lg:flex justify-center items-center" delay={0.5} direction="right">
             <div className="relative w-full max-w-xs aspect-[3/4]">
               {/* Starry Background Layer */}
               <div className="absolute inset-0 bg-black rounded-2xl overflow-hidden">
@@ -126,15 +137,16 @@ const HeroSection = () => {
               </div>
 
               {/* Portrait Image */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden">
-                <img 
-                  src="/placeholder.svg" 
-                  alt="Mithilaj Abdul - Director & Producer" 
-                  className="w-full h-full object-cover object-center"
-                  style={{
-                    filter: 'contrast(1.1) brightness(0.9)',
-                  }}
-                />
+              <ParallaxImage speed={0.3}>
+                <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&q=80" 
+                    alt="Mithilaj Abdul - Director & Producer" 
+                    className="w-full h-full object-cover object-center"
+                    style={{
+                      filter: 'contrast(1.1) brightness(0.9)',
+                    }}
+                  />
                 
                 {/* Red Light Overlay (Left side) */}
                 <div 
@@ -183,7 +195,8 @@ const HeroSection = () => {
 
                 {/* Border Glow */}
                 <div className="absolute inset-0 rounded-2xl border-2 border-primary/20 shadow-[0_0_30px_rgba(168,85,247,0.3)]" />
-              </div>
+                </div>
+              </ParallaxImage>
 
               {/* Floating particles around the portrait */}
               <div className="absolute inset-0 pointer-events-none">
@@ -201,7 +214,7 @@ const HeroSection = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </AnimationWrapper>
         </div>
       </div>
     </section>
